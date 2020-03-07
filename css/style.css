@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css?family=Sen&display=swap");
+/* font-family: 'Sen', sans-serif; */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Sen", sans-serif;
+}
+
+.container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+}
+
+.random-btn {
+  padding: 12px 16px;
+  background: #808b96;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.random-btn:hover {
+  transform: scale(1.1);
+  transition: ease-in 0.2s;
+  background: #abb2b9;
+}
+
+/* Random game element box stylings */
+.randomiser {
+  border: 4px solid grey;
+  width: 80%;
+  height: 108px;
+  background: yellow;
+  overflow: hidden;
+}
+
+.randomiser p {
+  margin: 0;
+}
+
+.panel-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel {
+  background: url("../metal-tile.png");
+  width: 100%;
+  height: 50%;
+  position: relative;
+  z-index: 2;
+  transition: 1s ease-out;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  margin: 0;
+}
+
+.panel-top {
+  transform: translateY(-100%);
+}
+
+.panel-bottom {
+  transform: translateY(100%);
+}
+
+input[type="checkbox"]:checked ~ div.panel-top {
+  transform: translateY(0);
+}
+
+input[type="checkbox"]:checked ~ div.panel-bottom {
+  transform: translateY(0);
+}
+
+/* Board Stylings */
+.board {
+  position: absolute;
+  z-index: 1;
+}
+
+.tharsis {
+  background: red;
+}
+
+.hellas {
+  background: blue;
+}
+
+.elysium {
+  background: green;
+}
+
+/* Animations */
