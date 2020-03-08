@@ -1,24 +1,25 @@
 // Data
-const boards = ["Tharsis", "Hellas", "Elysium"];
+const boards = ["tharsis", "hellas", "elysium"];
 
 let panelsOpen = false;
 
 // HTML Elements
 const boardText = document.getElementById("boardText");
 const randomButton = document.getElementById("random-btn");
-const checkboxes = document.querySelectorAll("input");
+const panels = document.querySelectorAll(".panel");
+
+const board = document.getElementById("board");
 
 // Functions
 function randomise() {
   const randomBoard = boards[Math.floor(Math.random() * 3)];
-
-  boardText.innerText = randomBoard;
+  boardText.innerText =
+    randomBoard.charAt(0).toUpperCase() + randomBoard.slice(1);
+  board.className = "randomiser " + randomBoard;
 }
 
 function togglePanels() {
-  checkboxes.forEach(cb => {
-    cb.checked = !cb.checked;
-  });
+  panels.forEach(panel => panel.classList.toggle("open"));
 
   panelsOpen = !panelsOpen;
 }
@@ -26,8 +27,8 @@ function togglePanels() {
 function generate() {
   let waitTime = 0; // so there is no timeout on the initial panel opening
   if (panelsOpen) {
-    togglePanels();
     waitTime = 1200;
+    togglePanels();
   }
   setTimeout(randomise, waitTime);
   setTimeout(togglePanels, waitTime);

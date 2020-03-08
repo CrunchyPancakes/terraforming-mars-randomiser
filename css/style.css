@@ -75,6 +75,14 @@ input[type="checkbox"] {
   margin: 0;
 }
 
+.panel-top.open {
+  transform: translateY(0);
+}
+
+.panel-bottom.open {
+  transform: translateY(0);
+}
+
 .panel-top {
   transform: translateY(-100%);
 }
@@ -83,16 +91,8 @@ input[type="checkbox"] {
   transform: translateY(100%);
 }
 
-input[type="checkbox"]:checked ~ div.panel-top {
-  transform: translateY(0);
-}
-
-input[type="checkbox"]:checked ~ div.panel-bottom {
-  transform: translateY(0);
-}
-
 /* Board Stylings */
-.board {
+.board-wrapper {
   position: absolute;
   z-index: 1;
 }
